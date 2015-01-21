@@ -1,0 +1,325 @@
+<?php
+session_start();
+ include('../connect.php');
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Welcome To Projrct Management Portal</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<!-- Bootstrap -->
+    
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../css/bootstrap-responsive.css" rel="stylesheet">    
+	<script src="../js/jquery.js"></script>
+    <script>
+		$(document).ready(function()
+		{
+			//alert($(window).width());
+			var x=(($(window).width())-1024)/2;
+			//alert(x);
+			$('.wrap').css("left",x+"px");
+		});
+
+	</script>
+	
+	<script src="../js/bootstrap.min.js"></script>
+    
+	
+<style>
+
+	body
+	{
+		background-image:url(../images/1.png);
+		background-repeat:repeat;
+	}
+	.modal-body
+	{
+		background-image:url(../images/.jpg);
+		background-repeat:repeat;
+	}
+		
+.head
+{
+	font-family:"Copperplate Gothic Bold";
+	color:#333;
+	text-decoration:none;
+	
+}
+.wrap{
+	position:absolute;
+	width:1024px;
+	background-color:#FFFFFF;
+	padding:0 10px;
+	
+	-o-box-shadow: 10px 10px 5px #888;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 0px 0px 25px #666;
+
+}
+	
+</style>    
+    
+
+</head>
+
+<body >
+	<div class="wrap">
+	<!-- Navigation Bar -->
+    
+	<div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="navbar-inner">
+        	<div class="container">
+            	<a class="brand" href="index.php"> STUDENT </a>
+                <div class="nav-collapse collapse">
+                	
+                      	
+						
+						<?php
+						if(isset($_SESSION['name']))
+						{
+						?>
+							<div style="float:right; margin-top: 2px;color: #ffffff;font-size: 17px;margin-right:6px;">
+						<?php	echo "Welcome &nbsp;<a href=\"../viewprofile.php\">".$_SESSION['fname']; ?>  </a>
+						
+						<?php echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../logout.php\" class=\"btn btn-info\">Logout</a>";
+						}
+						else
+						{
+						?>	
+						<div style="float:right; margin-right:-17px;">
+						<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal" style="margin-right:20px;" data-target="#myModal">Sign In</a>
+                       <a href="#myModal1" role="button" class="btn btn-info" data-toggle="modal" style="margin-right:20px;" data-target="#myModal1">Sign Up</a>
+                       <?php } ?>
+					   </div>
+                 </div>	          
+    		</div>
+         </div>
+    </div>
+    <!-- End Of Navigation Bar -->
+
+    <!-- Sign In -->
+	
+    
+    <div style="margin-top:50px;background-color:#FFFFFF;">
+    	<a href="index.php"><img src="../images/gtu.png" style="height:120px; width:100px; padding:20px;" /></a>
+        	
+            	<a class="head" href="index.php" style="text-decoration:none; font-size:24px; margin-left:20px;">Project Information Management System</a> 
+            
+    </div>
+    
+    <!-- Navbar Starts Here -->
+    <div class="navbar">
+  		<div class="navbar-inner">
+		    <a class="brand">Edit </a> </div>
+			 
+			<div class="table">
+        	<form method="post" action="editpro1.php">
+            	 <?php
+			
+			 $id=$_SESSION['name'];
+			 
+			
+			$result = mysql_query("SELECT * FROM student WHERE st_id='$id'");
+			while($row = mysql_fetch_array($result))
+						 {
+			?>
+				<table cellpadding="1" cellspacing="1" class="table table-hover">
+				<tr>	
+					<td> Enrollment No <font color="#FF0000"> *&nbsp; &nbsp;  </font>  </td>
+					<td> <input type="text" name="enno" value="<?php echo"".$row['st_enroll'];?>" placeholder="Enter Enrollment no" /></td>
+                    
+				</tr>
+                <tr>	
+					<td> Branch <font color="#FF0000"> *&nbsp; &nbsp;  </font>  </td>
+					<td>
+                    	<select name="branch">
+                        	<option> Select </option>
+                            <option value="civil"> Civil </option>
+                            <option value="computer"> Computer </option>
+                            <option value="electrical"> Electrical </option>
+                            <option value="et"> Electronics & Tele. Commu.</option>
+                            <option value="it"> IT </option>
+                            <option value="mechanical"> Mechanical </option>
+                            <option value="production"> Production </option>
+
+                        </select>
+                    </td>                    
+				</tr>
+                
+                
+                
+                <tr>	
+					<td> College Name <font color="#FF0000"> *&nbsp; &nbsp;  </font>  </td>
+					<td> <input type="text" name="cname" value="<?php echo"".$row['st_college'];?>" placeholder="Enter College Name" /></td>
+                    
+				</tr>
+                <tr>	
+					<td> State &nbsp; &nbsp </td>
+                    <td><span type="text" class="uneditable-input"> Gujarat</span> </td>
+				</tr>
+                <tr>	
+					<td> City <font color="#FF0000"> *&nbsp; &nbsp;  </font>  </td>
+                    <td>
+                    	<select name="city">
+                        <option> Select </option>
+                        <option value="anand"> Anand </option>
+                    	<option value="ahemadabad"> Ahmedabad </option>
+                        <option value="bharuch"> Bharuch </option>
+                        <option value="gandhinagar"> Gandhinagar </option>
+                        <option value="junagadh"> Junagadh </option>
+                        <option value="mehsana"> Mehsana </option>
+                        <option value="nadiad"> Nadiad </option>
+                        <option value="rajkot"> Rajkot </option>
+                        <option value="surat"> Surat </option>
+                        
+                   </td>
+				</tr>
+                
+                <tr>
+                	<td> Contact No <font color="#FF0000"> *&nbsp; &nbsp;  </font>  </td>
+                    <td> <input type="text" name="cno" value="<?php echo"".$row['st_mo_no'];?>" placeholder="Enter Mobile Number"</td>
+                </tr>
+                
+                <tr>
+                	<td></td><td></td>
+                </tr>
+                </fieldset>
+   			</table>
+            <div>
+            	<button class="btn btn-info" type="submit" style="margin-left:135px;"> Save </button>
+      			<button class="btn btn-info" type="reset" style="margin-left:30px;"> Reset </button>
+            </div>
+            </form>
+          
+           </div>
+           
+  		</div>  
+	</div>   
+    <!-- Profile Editing  Ends Here -->
+		</table>
+          <?php }
+			 ?> 
+		
+		</div>
+	
+	
+	<!-- Navbar Ends Here -->
+<div   >
+				
+				<p class="pull-left" style="padding-left:30px;">&copy; 2013 Copyrights, Inc. </p>
+				<p class="pull-right" style="padding-right:30px;">PIMS</p>		
+			</div>
+</div>
+ 
+
+</body>
+</html>
+	$id=$_SESSION['name'];
+										$sql1="SELECT * FROM student_project_information WHERE st_id='$id'";
+										$result1=mysql_query($sql1);
+
+										while($row = mysql_fetch_array($result1))
+										{
+											$proid = $row['pro_id'];		
+										}
+
+										
+										$tb="faculty";
+										$result1=mysql_query("SELECT * FROM $tb where pro_id='$proid'");
+											while($row=mysql_fetch_array($result1))
+											{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+$id=$_SESSION['name'];
+
+$r = mysql_query("SELECT pro_id FROM student_project_information WHERE ref_id='$id'");
+						while($row = mysql_fetch_array($r))
+						{
+							$proid=$row['pro_id'];
+						}		
+$r1=mysql_query("SELECT pro_type FROM student_project_information where ref_id='$id'");
+$type=mysql_result($r1,0,'pro_type');
+if($type=="IDP")
+{
+
+	echo"
+ 	<legend >Enter Your Industry Representative </legend>
+
+<form class="form-inline" method="post" action="iinfo.php">
+  <table cellpadding="1" cellspacing="1" class="table table-hover">
+				<tr>	
+					<th> Name   </th>
+					<td> <input type="text" name="st_fname"  value="<?php echo $stfname;?>" placeholder="Enter Your First name" /></td>
+					<td> <input type="text" name="st_lname"  value="<?php echo $stlname;?>" placeholder="Enter Your Last name" /></td>
+					
+				</tr>
+				
+				<tr>	
+					<th> Enrollment No   </th>
+					<td> <input type="text" name="enno"  value="<?php echo $enno;?>" placeholder="Enter Enrollment no" /></td>
+                    
+				</tr>
+				<tr>	
+					<th> Email   </th>
+					<td> <input type="text" name="st_email"  value="<?php echo $email;?>" placeholder="Enter Email" /></td>
+                    
+				</tr>                          	 
+</form>";
+                                
+
+
+
+
+}
+?>
+?>

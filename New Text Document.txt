@@ -1,0 +1,175 @@
+            <div class="navbar navbar-inverse" >
+
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-target=".navbar-inverse-collapse" data-toggle="collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">
+
+                Title
+
+            </a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">
+
+                            Home
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            Link
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+
+                            Link
+
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+                            Dropdown 
+
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">
+
+                                    Action
+
+                                </a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li class="divider"></li>
+                            <li class="nav-header"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-search pull-left" action=""></form>
+                <ul class="nav pull-right"></ul>
+            </div>
+            <!--
+
+             /.nav-collapse 
+
+            -->
+        </div>
+    </div>
+    <!--
+
+     /navbar-inner 
+
+    -->
+
+</div>
+<!--
+
+ /navbar 
+
+-->    
+
+
+
+
+
+
+
+
+
+<tr>
+		<td>
+		<label>&nbsp;&nbsp;Department:</label></td>
+		<td>
+		<select name="branch">
+									 
+                        	<option> SELECT </option>
+							<?php
+						$result = mysql_query("SELECT * FROM branch ORDER BY branch_id");
+						
+						while($row = mysql_fetch_array($result))
+						
+						{	$branch=$row['branch_name'];
+							echo '<option value="'.$branch.'"> '.$branch.' </option>';
+							
+							
+						}
+						?>
+                        </select></td>
+
+
+		</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+<form name="registration" method="post" action="register.php" onsubmit="return formValidation()">
+			<table style="margin-top:20px;" >		
+				<tr>	
+					<td > User Name <font color="#FF0000"> * </font>  </td>
+					<span id="c" style="visibility:hidden;"><span>
+					<td> <input type="text" name="uid" placeholder="User Name" onblur="return name1()" />
+					<span id="u1"><span>
+					<br /></td>
+				</tr>
+				<tr>
+					<td> First Name <font color="#FF0000"> * </font> &nbsp; </td>
+					<td> <input type="text" id="fn" name="fname" placeholder="Enter Your First Name " />
+	<!--				<span id="fn1" style="visibility:hidden;">Must Contain Atleast 6 character <span>
+					<span id="id1" style="visibility:hidden;"></span><br /></td>-->
+				</tr>
+				<tr>
+					<td> Last Name <font color="#FF0000"> * </font> &nbsp; </td>
+					<td><input type="text" name="lname" id="ln" placeholder="Enter Your Last Name"  />
+<!--					<span id="ln1" style="visibility:hidden;">Must Contain Atleast 6 character <span><br /></td>-->
+				</tr>
+				<tr>
+					<td> Profession <font color="#FF0000"> * </font> &nbsp; </td>
+					<td>
+                    	<select name="profession">
+                        <option> Select </option>
+                        <option value="student"> Student </option>
+                        <option value="industry_eng_detail"> Industry </option>
+                        <option value="faculty"> Faculty </option>
+                     	</select>
+                    </td>
+					 
+             	</tr>
+				
+				<tr>
+					<td> Password  <font color="#FF0000"> * </font> &nbsp; </td>
+					<td><input type="password" name="pass1" class="password_test"  /> 
+					 <br /></td>
+				</tr>
+				<tr>
+					<td> Confirm Password <font color="#FF0000"> * </font> &nbsp; </td>
+					<td><input type="password" name="pass2"  /><span id="p2"></span><br /></td>
+				</tr>
+				<tr>
+					<td> Email Id <font color="#FF0000"> * </font> &nbsp; </td>
+					<td><input class="span3" type="email" required="required" class="input-block-level" name="email" placeholder="Enter Your Email id Here" style="width:205px;"  /><span id="e1></span>"<br /></td>
+				</tr>
+				</table>
+				</div>
+			

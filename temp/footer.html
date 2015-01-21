@@ -1,0 +1,73 @@
+        <!-- FOOTER -->
+        <div id="outerfooter">
+        	<div class="main bg-grey">
+        	<div class="container">
+                <div id="footercontainer" class="twelve columns">
+                    <footer id="footer">Copyright &copy;2012- Project Information Management System. &nbsp;&nbsp; designed & developed by <a href="#"><b>Mehul&nbsp;<font color="grey">Hitesh&nbsp;</font>Nikul&nbsp;</b>Sunil&nbsp;</a></footer>
+                    <div id="toTop"><span>Back to top</span> &uarr;</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+        
+	</div><!-- end outercontainer -->
+</div><!-- end bodychild -->
+
+<!-- ////////////////////////////////// -->
+<!-- //      Javascript Files        // -->
+<!-- ////////////////////////////////// -->
+
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-easing-1.3.js"></script>
+<!-- jQuery Superfish -->
+<script type="text/javascript" src="js/hoverIntent.js"></script> 
+<script type="text/javascript" src="js/superfish.js"></script> 
+<script type="text/javascript" src="js/supersubs.js"></script>
+
+<!-- jQuery Layerslider -->
+<script type="text/javascript" src="js/layerslider.kreaturamedia.jquery-min.js"></script>
+
+<script type="text/javascript">
+jQuery(window).load(function() {
+	
+	jQuery('#layerslider').hover(function(){
+		jQuery('a.ls-nav-prev,a.ls-nav-next').fadeTo('slow',1);	
+	},
+	function(){
+		jQuery('a.ls-nav-prev,a.ls-nav-next').fadeTo('slow',0);	
+	});
+
+    jQuery('#layerslider.slideritems').layerSlider({
+		skinsPath : 'images/layerslider-skins/',
+		skin : 'broadway',
+		autoStart : true,
+		cbInit: function(){jQuery('a.ls-nav-prev,a.ls-nav-next').css('display','none');	},  
+	});
+});
+</script>
+
+<!-- jQuery PrettyPhoto -->
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/fade.js"></script>
+
+<!-- Custom Script -->
+<script type="text/javascript" src="js/custom.js"></script>
+
+<!-- jQuery PrettyPhoto -->
+
+<script type="text/javascript" >
+function update1()
+{
+i=document.getElementByID("mr");
+i.start();
+}
+function update()
+{
+i=document.getElementByID("mr");
+i.stop();
+}
+
+
+</body>
+</html>
